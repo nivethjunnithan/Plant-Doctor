@@ -45,7 +45,7 @@ It's easy to install and run it on your computer.
 ```shell
 # 1. First, clone the repo
 $ git clone https://github.com/nivethjunnithan/image-classifier-webapp-flask.git
-$ cd keras-flask-deploy-webapp
+$ cd image-classifier-webapp-flask
 
 # 2. Install Python packages
 $ pip install -r requirements.txt

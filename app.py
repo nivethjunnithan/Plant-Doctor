@@ -49,7 +49,9 @@ def import_and_predict(test):
         elif pred=='Banana_bbw':
             pred='Xanthomonas Wilt of Banana'
         elif pred=='Banana_Healthy':
-            pred='Banana Healthy' 
+            pred='Banana Healthy'
+        else:
+            pred='Not a suitable leaf class'
         return pred
         
     elif k == 'Paddy':
@@ -62,7 +64,9 @@ def import_and_predict(test):
         elif pred=='Paddy_BrownSpot':
             pred='Paddy Brown Spot '
         elif pred=='Paddy_Healthy':
-            pred='Paddy Healthy'            
+            pred='Paddy Healthy' 
+        else:
+            pred='Not a suitable leaf class'           
         return pred
     
     elif k == 'Tomato':
@@ -75,8 +79,13 @@ def import_and_predict(test):
         elif pred=='Tomato__Tomato_mosaic_virus':
             pred='Tomato Mosaic Virus'
         elif pred=='Tomato_healthy':
-            pred='Tomato Healthy' 
+            pred='Tomato Healthy'
+        else:
+            pred='Not a suitable leaf class'
         return pred
+        
+    else:
+        pred='Not a suitable leaf class'
 
 def predic(test_image,labelencoder,mod):
     size=(256,256)

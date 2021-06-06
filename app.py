@@ -2,14 +2,11 @@ import os
 import sys
 import pickle
 from flask import Flask, redirect, url_for, request, render_template, Response, jsonify, redirect
-from werkzeug.utils import secure_filename
-from gevent.pywsgi import WSGIServer
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-from PIL import Image, ImageOps
+from PIL import Image
 
 
 # Some utilites
@@ -21,19 +18,7 @@ from util import base64_to_pil
 app = Flask(__name__)
 
 
-# You can use pretrained model from Keras
-# Check https://keras.io/applications/
-# or https://www.tensorflow.org/api_docs/python/tf/keras/applications
-
-print('Model loaded. Check http://127.0.0.1:5000/')
-
-
-# Model saved with Keras model.save()
-# Load your own trained model
-# model = load_model(MODEL_PATH)
-# model._make_predict_function()          # Necessary
-# print('Model loaded. Start serving...')
-
+#Predict Functions
 def import_and_predict(test):
     models = load_model('/home/nivethjunnithan/Desktop/PlantDoctor/simple_classifier/Epoch-50-Val_acc1.00.hdf5')
     lbs=open(r'/home/nivethjunnithan/Desktop/PlantDoctor/simple_classifier/label_transform.pkl', 'rb')
@@ -87,39 +72,31 @@ def import_and_predict(test):
     else:
         pred='Not a suitable leaf class'
 
+
+
 def predic(test_image,labelencoder,mod):
-    size=(256,256)
     labeltransformer = pickle.load(labelencoder)
-    test_image =ImageOps.fit (test_image,size,Image.ANTIALIAS)
     test_image =image.img_to_array(test_image)
     test_image = np.array([test_image], dtype=np.float16) / 255.0
     prediction =mod.predict(test_image)
     sim= labeltransformer.inverse_transform(prediction)
     return sim
+
     
 @app.route('/', methods=['GET'])
 def index():
-    # Main page
     return render_template('index.html')
 
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        # Get the image from post request
         img = base64_to_pil(request.json)
-
         result = import_and_predict(img)
-
-        # Serialize the result, you can add additional fields
         return jsonify(result=result)
 
     return None
 
-
+#Main function
 if __name__ == '__main__':
-    # app.run(port=5002, threaded=False)
-
-    # Serve the app with gevent
-    http_server = WSGIServer(('0.0.0.0', 5000), app)
-    http_server.serve_forever()
+	app.run()

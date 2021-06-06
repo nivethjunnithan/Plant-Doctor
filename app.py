@@ -1,17 +1,17 @@
 import os
 import sys
 import pickle
-from flask import Flask, redirect, url_for, request, render_template, Response, jsonify, redirect
 import tensorflow as tf
+import numpy as np
+from flask import Flask, redirect, url_for, request, render_template, Response, jsonify, redirect
 from tensorflow import keras
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
-
+from util import base64_to_pil
 
 # Some utilites
-import numpy as np
-from util import base64_to_pil
+
 
 
 # Declare a flask app
@@ -100,3 +100,4 @@ def predict():
 #Main function
 if __name__ == '__main__':
 	app.run()
+

@@ -20,12 +20,12 @@ run_with_ngrok(app)
 
 #Predict Functions
 def import_and_predict(test):
-	models = load_model('/home/nivethjunnithan/Desktop/PlantDoctor/simple_classifier/Epoch-50-Val_acc1.00.hdf5')
-	lbs=open(r'/home/nivethjunnithan/Desktop/PlantDoctor/simple_classifier/label_transform.pkl', 'rb')
+	models = load_model('/content/drive/MyDrive/Plant Doctor/simple_classifier/Epoch-50-Val_acc1.00.hdf5')
+	lbs=open(r'/content/drive/MyDrive/Plant Doctor/simple_classifier/label_transform.pkl', 'rb')
 	k=predi(test,models,lbs)
 	if k == 'Banana':
-		model=load_model('/home/nivethjunnithan/Desktop/PlantDoctor/banana_classifier/Epoch-45-Val_acc0.99.hdf5')
-		lb=open(r'/home/nivethjunnithan/Desktop/PlantDoctor/banana_classifier/label_transform.pkl', 'rb')
+		model=load_model('/content/drive/MyDrive/Plant Doctor/banana_classifier/Epoch-48-Val_acc0.95.hdf5')
+		lb=open(r'/content/drive/MyDrive/Plant Doctor/banana_classifier/label_transform.pkl', 'rb')
 		pred=predic(test,lb,model)
 		del model
 		del lb
@@ -42,8 +42,8 @@ def import_and_predict(test):
         
         
 	elif k == 'Paddy':
-		model=load_model('/home/nivethjunnithan/Desktop/PlantDoctor/paddy_classifier/Epoch-05-Val_acc0.82.hdf5')
-		lb=open(r'/home/nivethjunnithan/Desktop/PlantDoctor/paddy_classifier/label_transform.pkl', 'rb')
+		model=load_model('/content/drive/MyDrive/Plant Doctor/paddy_classifier/Epoch-05-Val_acc0.82.hdf5')
+		lb=open(r'/content/drive/MyDrive/Plant Doctor/paddy_classifier/label_transform.pkl', 'rb')
 		pred=predic(test,lb,model)
 		del model
 		del lb
@@ -58,8 +58,8 @@ def import_and_predict(test):
 			pred='Not a suitable leaf class'           
     
 	elif k == 'Tomato':
-		model=load_model('/home/nivethjunnithan/Desktop/PlantDoctor/tomato_classifier/Epoch-29-Val_acc0.99.hdf5')
-		lb=open(r'/home/nivethjunnithan/Desktop/PlantDoctor/tomato_classifier/label_transform.pkl', 'rb')
+		model=load_model('/content/drive/MyDrive/Plant Doctor/tomato_classifier/Epoch-29-Val_acc0.99.hdf5')
+		lb=open(r'/content/drive/MyDrive/Plant Doctor/tomato_classifier/label_transform.pkl', 'rb')
 		pred=predic(test,lb,model)
 		del model
 		del lb
@@ -83,6 +83,7 @@ def predic(test_image,labelencoder,mod):
     test_image =image.img_to_array(test_image)
     test_image = np.array([test_image], dtype=np.float16) / 255.0
     prediction =mod.predict(test_image)
+    print (np.max(prediction))
     del test_image
     del labelencoder
     gc.collect()
@@ -97,17 +98,18 @@ def predi(test_image,mod,labelencod):
     test_image =image.img_to_array(test_image)
     test_image = np.array([test_image], dtype=np.float16) / 255.0
     prediction = mod.predict(test_image)
+    print (np.max(prediction))
     del test_image
     del labelencod
     gc.collect()
-    if(np.max(prediction)>0.99):
+    if(np.max(prediction)>0.999):
         sim= labeltransform.inverse_transform(prediction)
     else :
         sim="Not a suitable type"
     
     return  sim
 
-    
+ # Definition   
 @app.route('/', methods=['GET'])
 def index():
 	return render_template('index.html')

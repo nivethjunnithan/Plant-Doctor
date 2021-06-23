@@ -2,7 +2,7 @@ import os
 import sys
 import pickle
 from flask import Flask, redirect, url_for, request, render_template, Response, jsonify, redirect
-from flask_ngrok import run_with_ngrok
+
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.models import load_model
@@ -15,7 +15,7 @@ import gc
 
 # Declare a flask app
 app = Flask(__name__)
-run_with_ngrok(app)
+
 
 
 #Predict Functions

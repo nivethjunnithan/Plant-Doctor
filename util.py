@@ -18,12 +18,6 @@ def base64_to_pil(img_base64):
     return pil_image
 
 
-def np_to_base64(img_np):
-    """
-    Convert numpy image (RGB) to base64 string
-    """
-    img = Image.fromarray(img_np.astype('uint8'), 'RGB')
-    buffered = BytesIO()
-    img.save(buffered, format="PNG")
-    return u"data:image/png;base64," + base64.b64encode(buffered.getvalue()).decode("ascii")
+
+
 

@@ -1,34 +1,112 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="main">
-  <div class="title">
-    <h1 style="text-align:center">Image Classifier</h1>
-    <h2 style="text-align:center">Banana, Paddy and Tomato Disease Detection </h4>
-    <h4 style="text-align:left">Please upload a JPG, JPEG or PNG file</h4>
-    <!-- <p>
-      <small>A web app demo</small>
-    </p> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      PLANT DOCTOR</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">How it Works?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#achievements">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="masthead text-center">
+  <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+
+          <div class="main">
+            <div class="title">
+              <h1>PLANT DOCTOR</h1>
+              <h2>Banana, Paddy and Tomato Leaf Disease Detector</h2>
+              <p>Try it out!</p> 
+            </div>
+          
+            <div class="frame">
+              <div class="panel">
+                <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+                <label for="file-upload" id="file-drag" class="upload-box">
+                  <div id="upload-caption">Drop image here or click to select</div>
+                  <img id="image-preview" class="hidden" />
+                </label>
+              </div>
+              <div style="margin-bottom: 2rem;">
+                <input type="button" value="Submit" class="button" onclick="submitImage();" />
+                <input type="button" value="Clear" class="button" onclick="clearImage();" />
+              </div>
+            
+              <div id="image-box">
+                <img id="image-display" />
+                <div id="pred-result" class="hidden"></div>
+                <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+                  <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+                </svg>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+      
+    </div>
   </div>
 
-  <div class="panel">
-    <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
-    <label for="file-upload" id="file-drag" class="upload-box">
-      <div id="upload-caption">Drop image here or click to select</div>
-      <img id="image-preview" class="hidden" />
-    </label>
-  </div>
-  <div style="margin-bottom: 2rem;">
-    <input type="button" value="Submit" class="button" onclick="submitImage();" />
-    <input type="button" value="Clear" class="button" onclick="clearImage();" />
-  </div>
-
-  <div id="image-box">
-    <img id="image-display" />
-    <div id="pred-result" class="hidden"></div>
-    <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
-      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-    </svg>
-  </div>
-</div>
+  <section  id ="about" class="offset features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-screen-desktop m-auto text-primary"></i>
+            </div>
+            <h3>DATA-1</h3>
+            <p class="lead mb-0">DATA-1-SUB</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-layers m-auto text-primary"></i>
+            </div>
+            <h3>DATA-2</h3>
+            <p class="lead mb-0">DATA-2-SUB</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-check m-auto text-primary"></i>
+            </div>
+            <h3>DATA-3</h3>
+            <p class="lead mb-0">DATA-3-SUB</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 {% endblock %}

@@ -1,6 +1,6 @@
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #0d986a;
+  background-color: #93e5ab;
 }
 
 h1,
@@ -25,7 +25,7 @@ h6 {
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 0.1rem;
-  background: #65b891 !important;
+  background: #93e5ab !important;
   border-bottom: 1px solid #65b891;
 }
 .navbar-brand img {
@@ -44,7 +44,7 @@ h6 {
 }
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #664e4c;
+  color: #c15a62;
 }
 
 /*home*/
@@ -58,6 +58,7 @@ h6 {
   background-size: cover;
   background-position: center;
   position: relative;
+  align-items: center !important;
 }
 .masthead .overlay {
   position: absolute;
@@ -69,7 +70,23 @@ h6 {
   z-index: 1;
   opacity: 0.3;
 }
-.masthead h1 {
+
+.masthead .main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.masthead .main .frame .panel {
+  align-items: center;
+}
+
+.masthead .main .title {
+  text-align: center;
+}
+
+.masthead .main .title h1 {
   color: #fff;
   font-size: 3rem;
   font-weight: 700;
@@ -78,11 +95,19 @@ h6 {
   letter-spacing: 0.3rem;
   text-shadow: 0.1rem 0.1rem 0.8rem rgb(80, 79, 79);
 }
-.masthead h2 {
+.masthead .main .title h2 {
   color: #dce0cd;
-  font-size: 1rem;
+  font-size: 2rem;
   text-shadow: 0.1rem 0.1rem 0.5rem rgb(80, 79, 79);
-  padding-bottom: 1.6rem;
+  font-weight: 500;
+  margin: 0.8rem 0 0.6rem;
+}
+
+.masthead .main .title p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
 }
 
 /* Global button style */
@@ -110,32 +135,6 @@ h6 {
   pointer-events: none;
   background-color: #cccccc;
   color: #666666;
-}
-
-/* Main section */
-
-.main {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main .title {
-  text-align: center;
-}
-
-.main .title h2 {
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 0.8rem 0 0.6rem;
-}
-
-.main .title p {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
 }
 
 .hidden {
@@ -254,5 +253,95 @@ h6 {
     stroke-dasharray: 2, 85.964;
     stroke-dashoffset: -65.973;
     transform: rotate(90deg);
+  }
+}
+
+.container-fluid {
+  padding: 7% 15%;
+  text-align: center;
+}
+
+#features {
+  position: relative;
+  z-index: 1;
+  margin: 5rem 0;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+}
+
+.feature-box {
+  padding: 5%;
+}
+
+.icon {
+  color: #275654;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #00241b;
+}
+
+.showcase .showcase-text {
+  padding: 3rem;
+}
+
+.showcase .showcase-img {
+  min-height: 30rem;
+  background-size: cover;
+}
+
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-top: 1px solid #65b891;
+}
+.footer .details {
+  color: #00241b;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #c15a62;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .masthead {
+    margin: 0;
+    padding-top: 7rem;
+  }
+  .masthead .main .title h1 {
+    font-size: 1.5rem;
+    padding-top: 8rem;
+  }
+  .masthead .main .title h2 {
+    font-size: 1rem;
+  }
+  .masthead .main .title p {
+    font-size: 0.8rem;
+  }
+  .white-section h2 {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+  }
+  .white-section h3 {
+    font-size: 1rem;
+  }
+  .white-section p {
+    font-size: 0.8rem;
+  }
+  .showcase h2 {
+    margin: 5rem 0 0 0;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
   }
 }

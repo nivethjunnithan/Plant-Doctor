@@ -10,7 +10,7 @@ A pretty and customizable web app to deploy your DL model with ease
 
 ## Getting Started in 10 Minutes
 
-- Clone this repo 
+- Clone this repo
 - Install requirements
 - Run the script
 - Go to http://localhost:5000
@@ -31,10 +31,9 @@ A pretty and customizable web app to deploy your DL model with ease
 - Upgrade Docker base image to Python 3 (it's 2020)
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/nivethjunnithan/.github-images/main/Tab.png?token=ALL2VYEYSIFJNVE7OLOOP4DAYNJGW" height="330px" alt="">
-  <img src="https://raw.githubusercontent.com/nivethjunnithan/.github-images/main/Phone.png?token=ALL2VYCQAHSM6CZZKSRG273AYNJGE" height="330px" alt="">
+  <img src="https://raw.githubusercontent.com/nivethjunnithan/.github-images/main/Tab.png?token=ALL2VYGEQE2SAJJXOAXRAA3BAQ6V4" height="330px" alt="">
+  <img src="https://raw.githubusercontent.com/nivethjunnithan/.github-images/main/Phone.png?token=ALL2VYFPCHU774IVICVAMKTBAQ6VW" height="330px" alt="">
 </p>
-
 
 Open http://localhost:5000 and wait till the webpage is loaded.
 
@@ -57,11 +56,10 @@ $ flask run
 Open http://localhost:5000 and have fun. :smiley:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/nivethjunnithan/.github-images/main/Live.gif?token=ALL2VYDEOINYSMKHKCF4PF3AYNJEY" height="480px" alt="">
+  <img src="https://raw.githubusercontent.com/nivethjunnithan/.github-images/main/Live.gif?token=ALL2VYHBR3GHL2DEARNSHLDBAQ6VQ" height="480px" alt="">
 </p>
 
-------------------
-
+---
 
 ## More Resources
 

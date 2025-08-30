@@ -3,5 +3,5 @@ flask-ngrok
 h5py
 numpy
 Pillow
-scikit-learn==0.24.1
+scikit-learn
 tensorflow
